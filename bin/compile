@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+set -x
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+FONT_ZIP=NotoSansCJKjp-hinted.zip
+FONTS_URL=https://noto-website.storage.googleapis.com/pkgs/$FONT_ZIP
+FONT_FILE=NotoSansCJKjp-Medium.otf
+
+cd $CACHE_DIR
+wget $FONTS_URL && unzip $FONT_ZIP $FONT_FILE
+
+[ -d $BUILD_DIR/.fonts ] || mkdir $BUILD_DIR/.fonts
+cp $CACHE_DIR/$FONT_FILE $BUILD_DIR/.fonts

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "NotoSansCJKjp"
+exit 0
